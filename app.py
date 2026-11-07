@@ -8,7 +8,7 @@ st.set_page_config(
     layout="wide",
 )
 
-DATA_PATH = Path(__file__).parent / "stocks_cleaned.csv"
+DATA_PATH = Path(__file__).resolve().parents[1] / "stocks_cleaned.csv.gz"
 
 
 @st.cache_data(show_spinner="Loading stock data...")
