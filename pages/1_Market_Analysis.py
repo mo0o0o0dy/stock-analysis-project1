@@ -8,6 +8,9 @@ import plotly.express as px
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from theme import apply_theme, style_fig, PALETTE, TEAL, GOLD, DIRECTION_COLORS
 
+st.write("BASE:", str(_BASE))
+st.write("FILES:", sorted(p.name for p in _BASE.iterdir()))
+
 st.set_page_config(page_title="Market Analysis", page_icon="📊", layout="wide")
 apply_theme()
 DATA_PATH = Path(__file__).resolve().parents[1] / "stocks_cleaned.csv"
