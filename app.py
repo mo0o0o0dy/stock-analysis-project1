@@ -2,13 +2,16 @@ import streamlit as st
 import pandas as pd
 from pathlib import Path
 
+from theme import apply_theme
+
 st.set_page_config(
     page_title="Stock Market Analysis",
     page_icon="📈",
     layout="wide",
 )
+apply_theme()
 
-DATA_PATH = Path(__file__).resolve().parent / "stocks_cleaned.csv.gz"
+DATA_PATH = Path(__file__).parent / "stocks_cleaned.csv"
 
 
 @st.cache_data(show_spinner="Loading stock data...")
