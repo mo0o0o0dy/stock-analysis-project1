@@ -8,8 +8,7 @@ import plotly.express as px
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from theme import apply_theme, style_fig, PALETTE, TEAL, GOLD, DIRECTION_COLORS
 
-st.write("BASE:", str(_BASE))
-st.write("FILES:", sorted(p.name for p in _BASE.iterdir()))
+
 
 st.set_page_config(page_title="Market Analysis", page_icon="📊", layout="wide")
 apply_theme()
@@ -40,7 +39,12 @@ missing = required - set(df.columns)
 if missing:
     st.error(f"Missing required columns: {', '.join(sorted(missing))}")
     st.stop()
-
+_BASE = Path(__file__).resolve().parents[1]
+DATA_PATH = next(
+    (p for p in (_BASE / "stocks_cleaned.csv", _BASE / "stocks_cleaned.csv.gz") if p.exists()),
+    _BASE / "stocks_cleaned.csv",
+)
+st.write("FILES:", sorted(p.name for p in _BASE.iterdir()))
 st.markdown("Explore the main findings from the exploratory data analysis.")
 
 # Annual metrics
