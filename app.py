@@ -7,7 +7,6 @@ st.set_page_config(
     page_icon="📈",
     layout="wide",
 )
-
 DATA_PATH = Path(__file__).resolve().parents[1] / "stocks_cleaned.csv.gz"
 
 
