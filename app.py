@@ -14,7 +14,11 @@ st.set_page_config(
 )
 apply_theme()
 
-DATA_PATH = Path(__file__).parent / "stocks_cleaned.csv"
+_BASE = Path(__file__).resolve().parent
+DATA_PATH = next(
+    (p for p in (_BASE / "stocks_cleaned.csv", _BASE / "stocks_cleaned.csv.gz") if p.exists()),
+    _BASE / "stocks_cleaned.csv",
+)
 
 
 @st.cache_data(show_spinner="Loading stock data...")
