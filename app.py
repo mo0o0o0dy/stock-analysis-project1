@@ -6,8 +6,7 @@ st.set_page_config(
     page_title="Stock Market Analysis",
     page_icon="📈",
     layout="wide",
-)
-DATA_PATH = Path(__file__).resolve().parents[1] / "stocks_cleaned.csv.gz"
+)DATA_PATH = Path(__file__).resolve().parent / "stocks_cleaned.csv.gz"
 
 
 @st.cache_data(show_spinner="Loading stock data...")
