@@ -15,7 +15,11 @@ DATA_PATH = next(
     (p for p in (_BASE / "stocks_cleaned.csv", _BASE / "stocks_cleaned.csv.gz") if p.exists()),
     _BASE / "stocks_cleaned.csv",
 )
- 
+ _BASE = Path(__file__).resolve().parents[1]
+DATA_PATH = next(
+    (p for p in (_BASE / "stocks_cleaned.csv", _BASE / "stocks_cleaned.csv.gz") if p.exists()),
+    _BASE / "stocks_cleaned.csv",
+)
  
 @st.cache_data(show_spinner="Loading stock data...")
 def load_data(path: str) -> pd.DataFrame:
